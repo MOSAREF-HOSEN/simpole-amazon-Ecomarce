@@ -17,7 +17,7 @@ const Product = (props) => {
            <p className='product-name'>{name}</p>
             <p>Price: ${price}</p>
             <p><small>Seller: {seller}</small></p>
-            <p><small>ratings: {ratings} stars</small></p>
+            <p><small>rating: {ratings} stars</small></p>
            </div>
         <button onClick={()=> props.hendelAddTocart(props.product)} className='btn-card'>
                <p className='btn-text'>add to card</p>
