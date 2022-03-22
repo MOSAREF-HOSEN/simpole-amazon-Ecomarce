@@ -12,6 +12,10 @@ const Shop = () => {
 
     },[])
 
+    const hendelclick =(product)=>{
+        console.log(product);
+    }
+
     return (
         <div className='shop-container'>
             <div className="prodacts-container">
@@ -19,6 +23,7 @@ const Shop = () => {
                    products.map(product=><Product
                      key={product.id}
                      product={product}
+                     hendelclick={hendelclick}
                      ></Product>)
                }
             </div>
