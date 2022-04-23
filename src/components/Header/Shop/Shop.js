@@ -1,26 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import useProducts from '../../../hooks/useProducts';
 import { addToDb, getStordcart } from '../../../utilities/fakedb';
 import Card from '../../Card/Card';
 import Product from '../../Product/Product';
 import './Shop.css'
 
 const Shop = () => {
-    const [products,setproducts] = useState([])
+    const [products,setProducts] = useProducts()
     const [cart, setCart] = useState([]);
      
-     useEffect(()=>{
-         console.log("face data");
-    fetch('products.json')
-    .then(res=>res.json())
-     .then(data=>{
-         setproducts(data)
-        //  console.log('object');
-        })
-
-    },[])
+     
 
     useEffect(()=>{
-        console.log('localst',products);
+        // console.log('localst',products);
         const savedCart = []
         const storedCart = getStordcart()
         console.log(storedCart);
@@ -38,7 +30,7 @@ const Shop = () => {
     },[products])
 
     const hendelAddTocart=(selecetedproduct)=>{
-        console.log(selecetedproduct);
+        // console.log(selecetedproduct);
         let newCart = []
         const existe = cart.find(prodact => prodact.id === selecetedproduct.id)
         if(!existe){
