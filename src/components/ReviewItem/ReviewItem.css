@@ -1,0 +1,20 @@
+.review-item{
+    border: 1px solid gainsboro;
+    border-radius: 8px;
+    padding: 8px;
+    margin-top: 21px;
+    width: 571px;
+    display: flex;
+}
+.review-item img{
+    width: 91px;
+}
+
+.review-detail p{
+    margin: 0;
+}
+.review-detail-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
