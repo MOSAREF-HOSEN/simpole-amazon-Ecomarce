@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import { addToDb, getStordcart } from '../../../utilities/fakedb';
 import Card from '../../Card/Card';
@@ -15,7 +16,7 @@ const Shop = () => {
         // console.log('localst',products);
         const savedCart = []
         const storedCart = getStordcart()
-        console.log(storedCart);
+        // console.log(storedCart);
         for(const id in storedCart){
             const addProduct = products.find(product =>product.id ===id)
             if(addProduct){
@@ -60,7 +61,11 @@ const Shop = () => {
                }
             </div>
             <div className="card-container">
-              <Card card={cart}></Card>
+              <Card card={cart}>
+                <Link to='/orders'>
+                    <button>Review Order</button>
+                </Link>
+              </Card>
             </div>
         </div>
     );
