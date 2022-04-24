@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
+import Login from './components/Anthontication/Login/Login';
+import SignUp from './components/Anthontication/Login/SignUp/SignUp';
 import Header from './components/Header/Header.js';
 import Shop from './components/Header/Shop/Shop';
 import Inventory from './components/Inventory/Inventory';
@@ -16,8 +18,10 @@ function App() {
        <Route path='/orders' element={<Orders></Orders>}></Route>
        <Route path='/inventory' element={<Inventory></Inventory>}></Route>
        <Route path='/about' element={<About></About>}></Route>
+       <Route path='/login' element={<Login></Login>}></Route>
+       <Route path='/signup' element={<SignUp></SignUp>}></Route>
      </Routes>
-     {/* <Shop></Shop> */}
+     
     </div>
   );
 }
