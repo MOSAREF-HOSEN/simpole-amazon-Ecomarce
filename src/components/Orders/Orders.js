@@ -1,14 +1,19 @@
 import React from 'react';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
+import Card from '../Card/Card';
 
 const Orders = () => {
-    const [products,setProducts] = useProducts();
-    const [cart,setCart] = useCart(products)
+    const [products,setProducts] = useProducts()
+    const [card,setCard] = useCart(products)
     return (
-        <div>
-            <h2>hthis is ors{products.length}</h2>
-            <p>catr{cart.length}</p>
+        <div className='shop-container'>
+           <div className="prodacts-container">
+
+           </div>
+           <div className="card-container">
+               <Card card={card}></Card>
+           </div>
         </div>
     );
 };
