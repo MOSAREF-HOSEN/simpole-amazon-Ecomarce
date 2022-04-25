@@ -11,9 +11,9 @@ const Orders = () => {
     const [card,setCard] = useCart(products)
     const navigate = useNavigate()
     const hendelRemoveProduct = (product)=>{
-        const rest = card.filter(pd=>pd.id !== product.id)
+        const rest = card.filter(pd=>pd._id !== product._id)
         setCard(rest)
-        removeFromDb(product.id)
+        removeFromDb(product._id)
     }
 
     return (
@@ -21,7 +21,7 @@ const Orders = () => {
            <div className="review-container">
             {
                 card.map(product=> <ReviewItem
-                key={product.id}
+                key={product._id}
                 product={product}
                 hendelRemoveProduct={hendelRemoveProduct}
                 ></ReviewItem>)
