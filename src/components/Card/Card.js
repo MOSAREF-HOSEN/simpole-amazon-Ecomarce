@@ -2,7 +2,7 @@ import React from 'react';
 import './Card.css'
 const Card = (props) => {
         const {card} = props
-    console.log(props.children);
+    console.log(card);
         let total  = 0
         let shipping = 0;
         let quantity = 0;

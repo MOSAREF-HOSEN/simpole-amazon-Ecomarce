@@ -8,7 +8,7 @@ import ReviewItem from '../ReviewItem/ReviewItem';
 import './Orders.css'
 const Orders = () => {
     const [products,setProducts] = useProducts()
-    const [card,setCard] = useCart(products)
+    const [card,setCard] = useCart()
     const navigate = useNavigate()
     const hendelRemoveProduct = (product)=>{
         const rest = card.filter(pd=>pd._id !== product._id)
