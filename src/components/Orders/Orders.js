@@ -6,8 +6,10 @@ import { removeFromDb } from '../../utilities/fakedb';
 import Card from '../Card/Card';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import './Orders.css'
+
 const Orders = () => {
     const [products,setProducts] = useProducts()
+    console.log(products);
     const [card,setCard] = useCart()
     const navigate = useNavigate()
     const hendelRemoveProduct = (product)=>{
