@@ -14,7 +14,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    
+
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -28,7 +28,7 @@ const Login = () => {
     }
 
     if (user) {
-        navigate(from, {replace: true});
+        navigate(from, { replace: true });
     }
 
     const handleUserSignIn = event => {
@@ -37,27 +37,46 @@ const Login = () => {
     }
 
     return (
-        <div className='form-container'>
-            <div>
-                <h2 className='form-title'>Login</h2>
-                <form onSubmit={handleUserSignIn}>
-                    <div className="input-group">
-                        <label htmlFor="email">Email</label>
-                        <input onBlur={handleEmailBlur} type="email" name="email" id="" required />
+        <div className='flex h-screen justify-center items-center mt-6'>
+            <div className='card w-96  shadow-xl'>
+                <h2 className='text-center text-4xl'>Login</h2>
+                <form className='card-body' onSubmit={handleUserSignIn}>
+                    <div >
+                        <label class="label">
+                            <span class="label-text">Enter Your Email</span>
+
+                        </label>
+
+                        <input onBlur={handleEmailBlur} type="email" placeholder="Your Email" name="email" class="input input-bordered w-full max-w-xs" />
+
                     </div>
-                    <div className="input-group">
-                        <label htmlFor="password">Password</label>
-                        <input onBlur={handlePasswordBlur} type="password" name="password" id="" required />
+                    <div className="">
+
+                        <label class="label">
+                            <span class="label-text">Your password</span>
+                            
+                        </label>
+
+                        <input onBlur={handlePasswordBlur} type="password" placeholder="Your password" class="input input-bordered w-full max-w-xs" name="password" id="" required />
                     </div>
                     <p style={{ color: 'red' }}>{error?.message}</p>
                     {
                         loading && <p>Loading...</p>
                     }
-                    <input className='form-submit' type="submit" value="Login" />
-                </form>
-                <p>
-                    New to Ema-John? <Link className='form-link' to="/signup">Create an account</Link>
+                    <input className='btn w-full max-w-xs' type="submit" value="Login" />
+               
+                    <p>
+                    New to Ema-John? <Link className='form-link underline' to="/signup">Create an account</Link>
                 </p>
+                <div className="divider">OR</div>
+                {/* google */}
+                <button
+                      
+                        className="btn btn-outline btn-success">Continue with Google</button>
+               
+               
+                </form>
+                
             </div>
         </div>
     );
