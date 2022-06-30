@@ -16,20 +16,20 @@ const Header = () => {
            <nav className='header'>
                <img src={logo} alt="" />
                <div>
-                   <Link to="/shop">shop</Link>
-                   <Link to="/orders">orders</Link>
-                   <Link to="/inventory">inventory</Link>
-                   <Link to="/about">about</Link>
+                   <Link className='uppercase' to="/shop">shop</Link>
+                   <Link className='uppercase' to="/orders">orders</Link>
+                   <Link className='uppercase' to="/inventory">inventory</Link>
+                   <Link className='uppercase' to="/about">about</Link>
                    {
                        user
                        ?
-                       <button onClick={hendelSignout}>SignOut</button>
+                       <button className='uppercase outof'  onClick={hendelSignout}>SignOut</button>
                        :
-                       <Link to="/login">Login</Link>
+                       <Link className='uppercase'  to="/login">Login</Link>
                    }
                </div>
            </nav>
-        </div>
+        </div> 
     );
 };
 

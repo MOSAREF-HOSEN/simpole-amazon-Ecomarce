@@ -37,7 +37,7 @@ const Login = () => {
     }
 
     return (
-        <div className='flex h-screen justify-center items-center mt-6'>
+        <div className='flex h-screen justify-center items-center'>
             <div className='card w-96  shadow-xl'>
                 <h2 className='text-center text-4xl'>Login</h2>
                 <form className='card-body' onSubmit={handleUserSignIn}>
@@ -63,7 +63,7 @@ const Login = () => {
                     {
                         loading && <p>Loading...</p>
                     }
-                    <input className='btn w-full max-w-xs' type="submit" value="Login" />
+                    <input className='btn btn-primary w-full max-w-xs' type="submit" value="Login" />
                
                     <p>
                     New to Ema-John? <Link className='form-link underline' to="/signup">Create an account</Link>
@@ -72,7 +72,7 @@ const Login = () => {
                 {/* google */}
                 <button
                       
-                        className="btn btn-outline btn-success">Continue with Google</button>
+                        className="btn btn-outline btn-warning">Continue with Google</button>
                
                
                 </form>

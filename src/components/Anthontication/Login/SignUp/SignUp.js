@@ -13,60 +13,68 @@ const SignUp = () => {
 
     const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth)
 
-    const handleEmailBlur = event =>{
+    const handleEmailBlur = event => {
         setEmail(event.target.value);
     }
 
-    const handlePasswordBlur = event =>{
+    const handlePasswordBlur = event => {
         setPassword(event.target.value);
     }
 
-    const handleConfirmPasswordBlur = event =>{
+    const handleConfirmPasswordBlur = event => {
         setConfirmPassword(event.target.value);
     }
 
-    if(user){
+    if (user) {
         navigate('/shop');
         console.log('login');
     }
 
-    const handleCreateUser = event =>{
+    const handleCreateUser = event => {
         event.preventDefault();
-        if(password !== confirmPassword){
+        if (password !== confirmPassword) {
             setError('Your two passwords did not match');
             return;
         }
-        if(password.length <6){
+        if (password.length < 6) {
             setError('Password must be 6 characters or longer');
             return;
         }
-        
+
         createUserWithEmailAndPassword(email, password);
     }
 
     return (
-        <div className='form-container'>
-            <div>
+        <div className='flex h-screen justify-center items-center'>
+            <div className='card w-96  shadow-xl'>
                 <h2 className='form-title'>Sign Up</h2>
-                <form onSubmit={handleCreateUser}>
-                    <div className="input-group">
-                        <label htmlFor="email">Email</label>
-                        <input onBlur={handleEmailBlur} type="email" name="email" id="" required/>
+                <form className='card-body' onSubmit={handleCreateUser}>
+                    <div className="">
+
+                        <span class="label-text">Enter Your Email</span>
+
+                        <input onBlur={handleEmailBlur} type="email" name='email' placeholder="Enter Your Email" class="input input-bordered w-full max-w-xs" required />
                     </div>
-                    <div className="input-group">
-                        <label htmlFor="password">Password</label>
-                        <input onBlur={handlePasswordBlur} type="password" name="password" id=""  required/>
+                    <div className="">
+                        <span class="label-text">Your password</span>
+                        <input onBlur={handlePasswordBlur} type="password" name="password" placeholder="Your password" class="input input-bordered w-full max-w-xs" />
                     </div>
-                    <div className="input-group">
-                        <label htmlFor="confirm-password">Confirm Password</label>
-                        <input onBlur={handleConfirmPasswordBlur} type="password" name="confirm-password" id="" />
+                    <div className="">
+                        <span class="label-text">confirm-password</span>
+                        <input onBlur={handleConfirmPasswordBlur} name="confirm-password" type="password" placeholder="confirm-password" class="input input-bordered w-full max-w-xs" />
                     </div>
-                    <p style={{color: 'red'}}>{error}</p>
-                    <input className='form-submit' type="submit" value="Sign Up"  required/>
+                    <p style={{ color: 'red' }}>{error}</p>
+                    <input className='btn btn-primary w-full max-w-xs' type="submit" value="SignUp" />
+                    <p>
+                        Already Have an account? <Link className='form-link underline' to="/login">Login</Link>
+                    </p>
+                    <div className="divider">OR</div>
+                    {/* google */}
+                    <button
+
+                        className="btn btn-outline btn-warning">Continue with Google</button>
                 </form>
-                <p>
-                    Already Have an account? <Link className='form-link' to="/login">Login</Link>
-                </p>
+
             </div>
         </div>
     );
