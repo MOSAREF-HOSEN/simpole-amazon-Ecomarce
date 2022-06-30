@@ -25,7 +25,7 @@ const Card = (props) => {
             <p className='text-gray-800 font-semibold '>shipping: ${shipping}</p>
             <p className='text-gray-800 font-semibold '>tax: {tax}</p>
             <h5 className='text-gray-800 font-semibold '>Total: {grandTotal.toFixed(2)}</h5>
-            <div class="divider"></div>
+            <div className="divider"></div>
             {props.children}
 
         </div>

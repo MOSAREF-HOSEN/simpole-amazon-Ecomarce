@@ -51,17 +51,17 @@ const SignUp = () => {
                 <form className='card-body' onSubmit={handleCreateUser}>
                     <div className="">
 
-                        <span class="label-text">Enter Your Email</span>
+                        <span className="label-text">Enter Your Email</span>
 
-                        <input onBlur={handleEmailBlur} type="email" name='email' placeholder="Enter Your Email" class="input input-bordered w-full max-w-xs" required />
+                        <input onBlur={handleEmailBlur} type="email" name='email' placeholder="Enter Your Email" className="input input-bordered w-full max-w-xs" required />
                     </div>
                     <div className="">
-                        <span class="label-text">Your password</span>
-                        <input onBlur={handlePasswordBlur} type="password" name="password" placeholder="Your password" class="input input-bordered w-full max-w-xs" />
+                        <span className="label-text">Your password</span>
+                        <input onBlur={handlePasswordBlur} type="password" name="password" placeholder="Your password" className="input input-bordered w-full max-w-xs" />
                     </div>
                     <div className="">
-                        <span class="label-text">confirm-password</span>
-                        <input onBlur={handleConfirmPasswordBlur} name="confirm-password" type="password" placeholder="confirm-password" class="input input-bordered w-full max-w-xs" />
+                        <span className="label-text">confirm-password</span>
+                        <input onBlur={handleConfirmPasswordBlur} name="confirm-password" type="password" placeholder="confirm-password" className="input input-bordered w-full max-w-xs" />
                     </div>
                     <p style={{ color: 'red' }}>{error}</p>
                     <input className='btn btn-primary w-full max-w-xs' type="submit" value="SignUp" />

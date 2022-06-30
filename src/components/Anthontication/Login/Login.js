@@ -42,22 +42,22 @@ const Login = () => {
                 <h2 className='text-center text-4xl'>Login</h2>
                 <form className='card-body' onSubmit={handleUserSignIn}>
                     <div >
-                        <label class="label">
-                            <span class="label-text">Enter Your Email</span>
+                        <label className="label">
+                            <span className="label-text">Enter Your Email</span>
 
                         </label>
 
-                        <input onBlur={handleEmailBlur} type="email" placeholder="Your Email" name="email" class="input input-bordered w-full max-w-xs" />
+                        <input onBlur={handleEmailBlur} type="email" placeholder="Your Email" name="email" className="input input-bordered w-full max-w-xs" />
 
                     </div>
                     <div className="">
 
-                        <label class="label">
-                            <span class="label-text">Your password</span>
+                        <label className="label">
+                            <span className="label-text">Your password</span>
                             
                         </label>
 
-                        <input onBlur={handlePasswordBlur} type="password" placeholder="Your password" class="input input-bordered w-full max-w-xs" name="password" id="" required />
+                        <input onBlur={handlePasswordBlur} type="password" placeholder="Your password" className="input input-bordered w-full max-w-xs" name="password" id="" required />
                     </div>
                     <p style={{ color: 'red' }}>{error?.message}</p>
                     {

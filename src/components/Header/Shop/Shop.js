@@ -71,7 +71,7 @@ const Shop = () => {
 
                     <Card card={cart}>
                         <Link to='/orders'>
-                            <button class="btn-sm btn-primary">Review Order</button>
+                            <button className="btn-sm btn-primary">Review Order</button>
 
                         </Link>
                     </Card>
