@@ -5,6 +5,7 @@ import useProducts from '../../../hooks/useProducts';
 import { addToDb, getStordcart } from '../../../utilities/fakedb';
 import Card from '../../Card/Card';
 import Product from '../../Product/Product';
+import Banner from './Banner';
 import './Shop.css'
 
 const Shop = () => {
@@ -15,13 +16,13 @@ const Shop = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product?page=${page}&size=${size}`)
+        fetch(`https://salty-citadel-49625.herokuapp.com/product?page=${page}&size=${size}`)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [page, size])
 
     useEffect(() => {
-        fetch('http://localhost:5000/productCount')
+        fetch('https://salty-citadel-49625.herokuapp.com/productCount')
             .then(res => res.json())
             .then(data => {
                 const count = data.count;
@@ -30,7 +31,7 @@ const Shop = () => {
             })
     }, [])
 
-  
+
 
     const hendelAddTocart = (selecetedproduct) => {
         // console.log(selecetedproduct);
@@ -52,38 +53,43 @@ const Shop = () => {
     }
 
     return (
-        <div className='shop-container'>
-            <div className="prodacts-container">
-                {
-                    products.map(product => <Product
-                        key={product._id}
-                        product={product}
-                        hendelAddTocart={hendelAddTocart}
-                    ></Product>)
-                }
-                <div className='pagination'>
+        <div>
+            <Banner></Banner>
+            <div className='shop-container'>
+                <div className="prodacts-container">
                     {
-                        [...Array(pageCount).keys()]
-                            .map(number => <button
-                                className={page === number ? "selected" : ''}
-                                onClick={() => setPage(number)}
-                            >{number}</button>)
+                        products.map(product => <Product
+                            key={product._id}
+                            product={product}
+                            hendelAddTocart={hendelAddTocart}
+                        ></Product>)
                     }
-                    {size}
-                    <select onChange={e => setSize(e.target.value)} id="">
-                        <option value='5'>5</option>
-                        <option value='10' selected>10</option>
-                        <option value='15'>15</option>
-                        <option value='20'>20</option>
-                    </select>
+                    <div className='pagination'>
+                        {
+                            [...Array(pageCount).keys()]
+                                .map((number, index) => <button
+                                    key={index}
+                                    className={page === number ? "selected" : ''}
+                                    onClick={() => setPage(number)}
+                                >{number}</button>)
+                        }
+                        {size}
+                        <select onChange={e => setSize(e.target.value)} id="">
+                            <option value='5'>5</option>
+                            <option value='10' >10</option>
+                            <option value='15'>15</option>
+                            <option value='20'>20</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div className="card-container">
-                <Card card={cart}>
-                    <Link to='/orders'>
-                        <button>Review Order</button>
-                    </Link>
-                </Card>
+                <div className="card-container">
+                    <Card card={cart}>
+                        <Link to='/orders'>
+                            <button class="btn btn-primary">Review Order</button>
+
+                        </Link>
+                    </Card>
+                </div>
             </div>
         </div>
     );
