@@ -7,7 +7,7 @@ const ReviewItem = (props) => {
     const {img,name,price,shipping,quantity} = product
     return (
         <div className='review-item'>
-           <div>
+           <div className='flex justify-center items-center mr-3'>
                <img src={img} alt="" />
            </div>
            <div className='review-detail-container'>
@@ -19,7 +19,7 @@ const ReviewItem = (props) => {
                     <p><small>Shipping{shipping}</small></p>
                     <p><small>Quantity{quantity}</small></p>
                 </div>
-                <div className="delete-container">
+                <div className="delete-container flex justify-center items-center ">
                     <button onClick={()=>hendelRemoveProduct(product)} className='delete-btn'>
                         <FontAwesomeIcon className='delete-icon' icon={ faTrashAlt}>
 

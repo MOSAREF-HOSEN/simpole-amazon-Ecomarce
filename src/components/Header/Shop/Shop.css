@@ -12,11 +12,11 @@
     margin-right: 10px;
     border: 1px solid orange;
     padding: 5px 20px;
-    margin: 10px;
+    margin: 0px;
     
 }
-.pagination .selected{
-    background-color: rgb(241, 134, 20);
+.pagination #selected{
+    background-color: rgb(65, 54, 43);
     color: white;
 }
 .card-container{

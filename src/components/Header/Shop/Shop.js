@@ -26,7 +26,7 @@ const Shop = () => {
             .then(res => res.json())
             .then(data => {
                 const count = data.count;
-                const pages = Math.ceil(count / 10)
+                const pages = Math.ceil(count / 9)
                 setPageCount(pages)
             })
     }, [])
@@ -64,32 +64,36 @@ const Shop = () => {
                             hendelAddTocart={hendelAddTocart}
                         ></Product>)
                     }
-                    <div className='pagination'>
-                        {
-                            [...Array(pageCount).keys()]
-                                .map((number, index) => <button
-                                    key={index}
-                                    className={page === number ? "selected" : ''}
-                                    onClick={() => setPage(number)}
-                                >{number}</button>)
-                        }
-                        {size}
-                        <select onChange={e => setSize(e.target.value)} id="">
-                            <option value='5'>5</option>
-                            <option value='10' >10</option>
-                            <option value='15'>15</option>
-                            <option value='20'>20</option>
-                        </select>
-                    </div>
+
                 </div>
+
                 <div className="card-container">
+
                     <Card card={cart}>
                         <Link to='/orders'>
-                            <button class="btn btn-primary">Review Order</button>
+                            <button class="btn-sm btn-primary">Review Order</button>
 
                         </Link>
                     </Card>
                 </div>
+            </div>
+            <div className='pagination flex justify-center items-center btn-group'>
+                {
+                    [...Array(pageCount).keys()]
+                        .map((number, index) => <button 
+                        className='btn btn-md'
+                            key={index}
+                            id={page === number ? "selected" : ''}
+                            onClick={() => setPage(number)}
+                        >{number}</button>)
+                }
+                {size}
+                <select className='' onChange={e => setSize(e.target.value)} id="">
+                    <option value='5'></option>
+                    <option value='9' >10</option>
+                    <option value='15'>15</option>
+                    <option value='20'>20</option>
+                </select>
             </div>
         </div>
     );

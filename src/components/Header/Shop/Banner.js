@@ -35,7 +35,7 @@ const Banner = () => {
                             <button
                                 data-aos='zoom-in'
                                 data-aos-delay='1300'
-                                class='btn bg-green-600'
+                                class='btn btn-primary'
                             >
                                 Get Started
                             </button>

@@ -3,6 +3,7 @@ import './App.css';
 import About from './components/About/About';
 import Login from './components/Anthontication/Login/Login';
 import SignUp from './components/Anthontication/Login/SignUp/SignUp';
+import Footer from './components/Footer';
 import Header from './components/Header/Header.js';
 import Banner from './components/Header/Shop/Banner';
 import Shop from './components/Header/Shop/Shop';
@@ -15,7 +16,7 @@ function App() {
   return (
     <div>
       <Header></Header>
-      {/* <Banner></Banner> */}
+      
       <Routes>
        
         <Route path='/' element={<Shop></Shop>}></Route>
@@ -36,7 +37,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
       </Routes>
-
+        <Footer></Footer>
     </div>
   );
 }

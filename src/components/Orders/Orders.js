@@ -31,7 +31,7 @@ const Orders = () => {
            </div>
            <div className="card-container">
                <Card card={card}>
-                  <button onClick={()=>navigate('/shipment')}>procsed chace out</button>
+                  <button className='btn-sm btn-primary' onClick={()=>navigate('/shipment')}>procsed chace out</button>
                </Card>
            </div>
         </div>
