@@ -47,7 +47,7 @@ const SignUp = () => {
     return (
         <div className='flex h-screen justify-center items-center'>
             <div className='card w-96  shadow-xl'>
-                <h2 className='form-title'>Sign Up</h2>
+            <h2 className='text-center text-4xl'>Sign Up</h2>
                 <form className='card-body' onSubmit={handleCreateUser}>
                     <div className="">
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-
+import shipment from '../../img/Amazon.png'
 const Shipment = () => {
     const [user] = useAuthState(auth);
     const [name, setName] = useState('');
@@ -30,28 +30,30 @@ const Shipment = () => {
     }
 
     return (
-        <div className='form-container'>
-            <div>
-                <h2 className='form-title'>Your Shipping Info</h2>
-                <form onSubmit={handleCreateUser}>
-                    <div className="input-group">
-                        <label htmlFor="name">Your Name</label>
-                        <input onBlur={handleNameBlur} type="text" name="name" id="" required/>
+        <div className='md:flex h-screen justify-around items-center bg-warning'>
+            <img className='img rounded-md' src={shipment} alt="" />
+            <div className='card w-96  shadow-xl'>
+                <h2 className='text-center text-primary font-serif text-4xl'>Your Shipping Info</h2>
+                <form onSubmit={handleCreateUser} className='card-body'>
+                    <div className="">
+                    <span class="label-text">What is your name?</span>
+                        <input class="input input-bordered w-full max-w-xs" onBlur={handleNameBlur} type="text" name="name" id="" required/>
+                     
                     </div>
-                    <div className="input-group">
-                        <label htmlFor="email">Your Email</label>
-                        <input value={user?.email} readOnly type="email" name="email" id="" required/>
+                    <div className="">
+                        <label class="label-text">Your Email</label>
+                        <input class="input input-bordered w-full max-w-xs" value={user?.email} readOnly type="email" name="email" id="" required/>
                     </div>
-                    <div className="input-group">
-                        <label htmlFor="password">Address</label>
-                        <input onBlur={handleAddressBlur} type="text" name="address" id=""  required/>
+                    <div className="">
+                        <label class="label-text">Address</label>
+                        <input class="input input-bordered w-full max-w-xs" onBlur={handleAddressBlur} type="text" name="address" id=""  required/>
                     </div>
-                    <div className="input-group">
-                        <label htmlFor="phone">Phone Number</label>
-                        <input onBlur={handlePhoneBlur} type="text" name="phone" id="" required/>
+                    <div className="">
+                        <label class="label-text">Phone Number</label>
+                        <input class="input input-bordered w-full max-w-xs" onBlur={handlePhoneBlur} type="text" name="phone" id="" required/>
                     </div>
                     <p style={{color: 'red'}}>{error}</p>
-                    <input className='form-submit' type="submit" value="Add Shipping"  required/>
+                    <input className='btn btn-primary w-full max-w-xs' type="submit" value="Add Shipping"  required/>
                 </form>
                 
             </div>
