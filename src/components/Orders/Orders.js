@@ -9,7 +9,7 @@ import './Orders.css'
 
 const Orders = () => {
     const [products,setProducts] = useProducts()
-    console.log(products);
+    // console.log(products);
     const [card,setCard] = useCart()
     const navigate = useNavigate()
     const hendelRemoveProduct = (product)=>{

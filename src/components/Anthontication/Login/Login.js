@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
@@ -14,6 +14,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -27,7 +28,7 @@ const Login = () => {
         setPassword(event.target.value);
     }
 
-    if (user) {
+    if (user || Guser) {
         navigate(from, { replace: true });
     }
 
@@ -71,7 +72,7 @@ const Login = () => {
                 <div className="divider">OR</div>
                 {/* google */}
                 <button
-                      
+                      onClick={() => signInWithGoogle()}
                         className="btn btn-outline btn-warning">Continue with Google</button>
                
                

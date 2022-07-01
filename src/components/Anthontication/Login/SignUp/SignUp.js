@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
 
 
@@ -10,6 +10,8 @@ const SignUp = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
+
+    const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
 
     const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth)
 
@@ -25,7 +27,7 @@ const SignUp = () => {
         setConfirmPassword(event.target.value);
     }
 
-    if (user) {
+    if (user || Guser) {
         navigate('/shop');
         console.log('login');
     }
@@ -71,8 +73,9 @@ const SignUp = () => {
                     <div className="divider">OR</div>
                     {/* google */}
                     <button
-
+                        onClick={() => signInWithGoogle()}
                         className="btn btn-outline btn-warning">Continue with Google</button>
+
                 </form>
 
             </div>
